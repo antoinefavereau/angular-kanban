@@ -1,0 +1,59 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 2px var(--dark);
+  padding: 1rem 2rem;
+
+  h1 {
+    margin: 0;
+    font-size: 2em;
+  }
+
+  a {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.content {
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+
+  .tasksList {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--dark);
+    color: var(--white);
+
+    .listHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 1rem;
+
+      h2 {
+        margin: 0;
+        font-weight: normal;
+      }
+
+      .optionsButton {
+        width: 2.5rem;
+        height: 2.5rem;
+        justify-content: center;
+
+        &:hover {
+          background-color: color-mix(in srgb, var(--white), #0000 90%);
+        }
+      }
+    }
+  }
+}
