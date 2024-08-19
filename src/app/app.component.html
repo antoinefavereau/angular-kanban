@@ -1,5 +1,95 @@
 <main class="main">
-
+    <div class="header">
+        <h1>Angular Kanban</h1>
+        <a href="https://antoinefavereau.fr" target="_blank" rel="noopener">
+            <span>Antoine Favereau</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <path d="M12 6H6C5.46957 6 4.96086 6.21071 4.58579 6.58579C4.21071 6.96086 4 7.46957 4 8V18C4 18.5304 4.21071 19.0391 4.58579 19.4142C4.96086 19.7893 5.46957 20 6 20H16C16.5304 20 17.0391 19.7893 17.4142 19.4142C17.7893 19.0391 18 18.5304 18 18V12" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M11 13L20 4" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M15 4H20V9" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+            </svg>
+        </a>
+    </div>
+    <div class="content">
+        <div class="tasksList">
+            <div class="listHeader">
+                <h2>To-do</h2>
+                <button class="optionsButton" type="button" title="options">
+                    <svg width="24" height="7" viewBox="0 0 24 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path d="M1.64706 3.5C1.64706 3.84322 1.78341 4.17238 2.0261 4.41508C2.2688 4.65777 2.59796 4.79411 2.94118 4.79411C3.2844 4.79411 3.61357 4.65777 3.85626 4.41508C4.09896 4.17238 4.2353 3.84322 4.2353 3.5C4.2353 3.15678 4.09896 2.82761 3.85626 2.58492C3.61357 2.34222 3.2844 2.20588 2.94118 2.20588C2.59796 2.20588 2.2688 2.34222 2.0261 2.58492C1.78341 2.82761 1.64706 3.15678 1.64706 3.5Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M10.7059 3.5C10.7059 3.84322 10.8422 4.17238 11.0849 4.41508C11.3276 4.65777 11.6568 4.79411 12 4.79411C12.3432 4.79411 12.6724 4.65777 12.9151 4.41508C13.1578 4.17238 13.2941 3.84322 13.2941 3.5C13.2941 3.15678 13.1578 2.82761 12.9151 2.58492C12.6724 2.34222 12.3432 2.20588 12 2.20588C11.6568 2.20588 11.3276 2.34222 11.0849 2.58492C10.8422 2.82761 10.7059 3.15678 10.7059 3.5Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19.7647 3.5C19.7647 3.84322 19.9011 4.17238 20.1437 4.41508C20.3864 4.65777 20.7156 4.79411 21.0588 4.79411C21.402 4.79411 21.7312 4.65777 21.9739 4.41508C22.2166 4.17238 22.3529 3.84322 22.3529 3.5C22.3529 3.15678 22.2166 2.82761 21.9739 2.58492C21.7312 2.34222 21.402 2.20588 21.0588 2.20588C20.7156 2.20588 20.3864 2.34222 20.1437 2.58492C19.9011 2.82761 19.7647 3.15678 19.7647 3.5Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <p class="empty-label" *ngIf="todo.length === 0">Empty list</p>
+            <app-task *ngFor="let task of todo" [task]="task"></app-task>
+            <button class="addTask" type="button" title="Add a task">
+                <svg width="16" height="auto" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path d="M12 2.23334V22.7667" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M1.73333 12.5H22.2667" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                </svg>
+                Add a task
+            </button>
+        </div>
+        <div class="tasksList">
+            <div class="listHeader">
+                <h2>Doing</h2>
+                <button class="optionsButton" type="button" title="options">
+                    <svg width="24" height="7" viewBox="0 0 24 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path d="M1.64706 3.5C1.64706 3.84322 1.78341 4.17238 2.0261 4.41508C2.2688 4.65777 2.59796 4.79411 2.94118 4.79411C3.2844 4.79411 3.61357 4.65777 3.85626 4.41508C4.09896 4.17238 4.2353 3.84322 4.2353 3.5C4.2353 3.15678 4.09896 2.82761 3.85626 2.58492C3.61357 2.34222 3.2844 2.20588 2.94118 2.20588C2.59796 2.20588 2.2688 2.34222 2.0261 2.58492C1.78341 2.82761 1.64706 3.15678 1.64706 3.5Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M10.7059 3.5C10.7059 3.84322 10.8422 4.17238 11.0849 4.41508C11.3276 4.65777 11.6568 4.79411 12 4.79411C12.3432 4.79411 12.6724 4.65777 12.9151 4.41508C13.1578 4.17238 13.2941 3.84322 13.2941 3.5C13.2941 3.15678 13.1578 2.82761 12.9151 2.58492C12.6724 2.34222 12.3432 2.20588 12 2.20588C11.6568 2.20588 11.3276 2.34222 11.0849 2.58492C10.8422 2.82761 10.7059 3.15678 10.7059 3.5Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19.7647 3.5C19.7647 3.84322 19.9011 4.17238 20.1437 4.41508C20.3864 4.65777 20.7156 4.79411 21.0588 4.79411C21.402 4.79411 21.7312 4.65777 21.9739 4.41508C22.2166 4.17238 22.3529 3.84322 22.3529 3.5C22.3529 3.15678 22.2166 2.82761 21.9739 2.58492C21.7312 2.34222 21.402 2.20588 21.0588 2.20588C20.7156 2.20588 20.3864 2.34222 20.1437 2.58492C19.9011 2.82761 19.7647 3.15678 19.7647 3.5Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <p class="empty-label" *ngIf="doing.length === 0">Empty list</p>
+            <app-task *ngFor="let task of doing" [task]="task"></app-task>
+            <button class="addTask" type="button" title="Add a task">
+                <svg width="16" height="auto" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path d="M12 2.23334V22.7667" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M1.73333 12.5H22.2667" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                </svg>
+                Add a task
+            </button>
+        </div>
+        <div class="tasksList">
+            <div class="listHeader">
+                <h2>Done</h2>
+                <button class="optionsButton" type="button" title="options">
+                    <svg width="24" height="7" viewBox="0 0 24 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path d="M1.64706 3.5C1.64706 3.84322 1.78341 4.17238 2.0261 4.41508C2.2688 4.65777 2.59796 4.79411 2.94118 4.79411C3.2844 4.79411 3.61357 4.65777 3.85626 4.41508C4.09896 4.17238 4.2353 3.84322 4.2353 3.5C4.2353 3.15678 4.09896 2.82761 3.85626 2.58492C3.61357 2.34222 3.2844 2.20588 2.94118 2.20588C2.59796 2.20588 2.2688 2.34222 2.0261 2.58492C1.78341 2.82761 1.64706 3.15678 1.64706 3.5Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M10.7059 3.5C10.7059 3.84322 10.8422 4.17238 11.0849 4.41508C11.3276 4.65777 11.6568 4.79411 12 4.79411C12.3432 4.79411 12.6724 4.65777 12.9151 4.41508C13.1578 4.17238 13.2941 3.84322 13.2941 3.5C13.2941 3.15678 13.1578 2.82761 12.9151 2.58492C12.6724 2.34222 12.3432 2.20588 12 2.20588C11.6568 2.20588 11.3276 2.34222 11.0849 2.58492C10.8422 2.82761 10.7059 3.15678 10.7059 3.5Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19.7647 3.5C19.7647 3.84322 19.9011 4.17238 20.1437 4.41508C20.3864 4.65777 20.7156 4.79411 21.0588 4.79411C21.402 4.79411 21.7312 4.65777 21.9739 4.41508C22.2166 4.17238 22.3529 3.84322 22.3529 3.5C22.3529 3.15678 22.2166 2.82761 21.9739 2.58492C21.7312 2.34222 21.402 2.20588 21.0588 2.20588C20.7156 2.20588 20.3864 2.34222 20.1437 2.58492C19.9011 2.82761 19.7647 3.15678 19.7647 3.5Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <p class="empty-label" *ngIf="done.length === 0">Empty list</p>
+            <app-task *ngFor="let task of done" [task]="task"></app-task>
+            <button class="addTask" type="button" title="Add a task">
+                <svg width="16" height="auto" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path d="M12 2.23334V22.7667" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M1.73333 12.5H22.2667" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                </svg>
+                Add a task
+            </button>
+        </div>
+    </div>
 </main>
 
 <router-outlet />

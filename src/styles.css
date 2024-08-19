@@ -6,6 +6,39 @@
 }
 
 body {
+  font-family: "Inter", sans-serif;
   margin: 0;
   background-color: var(--black);
+  color: var(--white);
 }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button,
+.button {
+  background-color: transparent;
+  color: var(--white);
+  border: none;
+  outline: none;
+  padding: 0.7rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--white), #0000 90%);
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
